@@ -12,14 +12,18 @@ public class GsonSample {
         Scanner scanner = new Scanner(System.in);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-        System.out.print("Introduce el nombre: ");
-        persona.setNombre(scanner.nextLine());
+        try {
+            System.out.print("Introduce el nombre: ");
+            persona.setNombre(scanner.nextLine());
 
-        System.out.print("Introduce los apellidos: ");
-        persona.setApellidos(scanner.nextLine());
+            System.out.print("Introduce los apellidos: ");
+            persona.setApellidos(scanner.nextLine());
 
-        System.out.print("Introduce la edad: ");
-        persona.setEdad(scanner.nextInt());
+            System.out.print("Introduce la edad: ");
+            persona.setEdad(scanner.nextInt());
+        } catch (Exception e) {
+            System.out.println("Error: El dato introducido no es válido.");
+        }
 
         String json = gson.toJson(persona);
         System.out.println(json);
